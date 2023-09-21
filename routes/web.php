@@ -49,6 +49,11 @@ Route::middleware(['auth','role:admin'])->group(function (){
     Route::controller(PostController::class)->group(function (){
         Route::get('/admin/all-post','index')->name('all-post');
         Route::get('/admin/add-post','add')->name('add-post');
+        Route::post('/admin/store-post','store')->name('store-post');
+        Route::get('/admin/detail-post/{id}','details')->name('detail-post');
+        Route::get('/admin/edit-post/{id}','edit')->name('edit-post');
+        Route::post('/admin/update-post/{id}','update')->name('update-post');
+        Route::get('/admin/delete-post/{id}/{cat_id}/{tag_id}','delete')->name('delete-post');
     });
 });
 

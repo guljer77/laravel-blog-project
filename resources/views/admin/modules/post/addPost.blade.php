@@ -17,7 +17,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('store-post') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-1">Post Title</label>
@@ -39,22 +39,22 @@
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-6">Post Category</label>
                         <div class="col-sm-10">
-                            <select class="form-select" name="category_name" id="basic-6" aria-label="Default select example">
+                            <select class="form-select" name="category_id" id="basic-6" aria-label="Default select example">
                                 <option selected>Select Category</option>
-                                    <option value="">One</option>
-                                    <option value="">One</option>
-                                    <option value="">One</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-7">Post Tag</label>
                         <div class="col-sm-10">
-                            <select class="form-select" name="tag_name" id="basic-7" aria-label="Default select example">
+                            <select class="form-select" name="tag_id" id="basic-7" aria-label="Default select example">
                                 <option selected>Select Tag</option>
-                                    <option value="">One</option>
-                                    <option value="">One</option>
-                                    <option value="">One</option>
+                                @foreach($tags as $tag)
+                                    <option value="{{ $tag->id }}">{{ $tag->tag_name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

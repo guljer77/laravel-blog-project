@@ -19,23 +19,27 @@
                         <tr>
                             <th>Sl</th>
                             <th>Post Name</th>
-                            <th>slug</th>
+                            <th>Description</th>
                             <th>Image</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                        @foreach($post as $singlePost)
                             <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $singlePost->post_title }}</td>
+                                <td>{!! substr($singlePost->post_des, 0,50) !!}</td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm"><i class="bx bx-book-open me-1"></i></a>
-                                    <a href="" class="btn btn-info btn-sm"><i class="bx bx-edit-alt me-1"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i></a>
+                                    <img src="{{ asset($singlePost->post_image) }}" alt="" width="80" height="60">
+                                </td>
+                                <td>
+                                    <a href="{{ route('detail-post',$singlePost->id) }}" class="btn btn-info btn-sm"><i class="bx bx-book-open me-1"></i></a>
+                                    <a href="{{ route('edit-post',$singlePost->id) }}" class="btn btn-info btn-sm"><i class="bx bx-edit-alt me-1"></i></a>
+                                    <a href="{{ route('delete-post',[$singlePost->id,$singlePost->category_id,$singlePost->tag_id]) }}" class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i></a>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
