@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    //
+    public function index(){
+        return view('admin.modules.category.allCategory');
+    }
+    public function add(){
+        return view('admin.modules.category.addCategory');
+    }
 }

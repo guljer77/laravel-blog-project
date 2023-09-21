@@ -128,12 +128,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="pages-misc-error.html" class="menu-link">
+                            <a href="{{ route('all-category') }}" class="menu-link">
                                 <div data-i18n="Error">All Category</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="pages-misc-under-maintenance.html" class="menu-link">
+                            <a href="{{ route('add-category') }}" class="menu-link">
                                 <div data-i18n="Under Maintenance">Add Category</div>
                             </a>
                         </li>
@@ -150,12 +150,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="ui-accordion.html" class="menu-link">
+                            <a href="{{ route('all-tag') }}" class="menu-link">
                                 <div data-i18n="Accordion">All Tag</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="ui-alerts.html" class="menu-link">
+                            <a href="{{ route('add-tag') }}" class="menu-link">
                                 <div data-i18n="Alerts">Add Tag</div>
                             </a>
                         </li>
@@ -172,12 +172,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="forms-basic-inputs.html" class="menu-link">
+                            <a href="{{ route('all-post') }}" class="menu-link">
                                 <div data-i18n="Basic Inputs">All Post</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="forms-input-groups.html" class="menu-link">
+                            <a href="{{ route('add-post') }}" class="menu-link">
                                 <div data-i18n="Input groups">Add Post</div>
                             </a>
                         </li>
@@ -309,6 +309,7 @@
 <!-- endbuild -->
 
 <!-- Vendors JS -->
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 <script src="{{ asset('backEnd') }}/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
 <!-- Main JS -->
@@ -319,6 +320,16 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .then( editor => {
+            console.log( editor );
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 </body>
 </html>
 
