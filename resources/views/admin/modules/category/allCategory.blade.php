@@ -25,16 +25,18 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                        @foreach($categories as $category)
                             <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $category->category_name }}</td>
+                                <td>{{ $category->slug }}</td>
+                                <td>{{ $category->tag_count }}</td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm"><i class="bx bx-edit-alt me-1"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i></a>
+                                    <a href="{{ route('edit-category',$category->id) }}" class="btn btn-info btn-sm"><i class="bx bx-edit-alt me-1"></i></a>
+                                    <a href="{{ route('delete-category',$category->id) }}" class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i></a>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
