@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('tag_name');
+            $table->bigInteger('category_id');
+            $table->string('category_name');
+            $table->integer('post_count')->default(0);
+            $table->string('slug');
             $table->timestamps();
         });
     }

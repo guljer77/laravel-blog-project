@@ -25,16 +25,18 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                        @foreach($tags as $tag)
                             <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $tag->tag_name }}</td>
+                                <td>{{ $tag->category_name }}</td>
+                                <td>{{ $tag->post_count }}</td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm"><i class="bx bx-edit-alt me-1"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i></a>
+                                    <a href="{{ route('edit-tag',$tag->id) }}" class="btn btn-info btn-sm"><i class="bx bx-edit-alt me-1"></i></a>
+                                    <a href="{{ route('delete-tag',$tag->id) }}" class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i></a>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -41,6 +41,10 @@ Route::middleware(['auth','role:admin'])->group(function (){
     Route::controller(TagController::class)->group(function (){
         Route::get('/admin/all-tag','index')->name('all-tag');
         Route::get('/admin/add-tag','add')->name('add-tag');
+        Route::post('/admin/store-tag','store')->name('store-tag');
+        Route::get('/admin/edit-tag/{id}','edit')->name('edit-tag');
+        Route::post('/admin/update-tag/{id}','update')->name('update-tag');
+        Route::get('/admin/delete-tag/{id}','delete')->name('delete-tag');
     });
     Route::controller(PostController::class)->group(function (){
         Route::get('/admin/all-post','index')->name('all-post');
